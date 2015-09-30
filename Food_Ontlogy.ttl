@@ -1,0 +1,337 @@
+@prefix : <http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#> .
+
+<http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#> rdf:type owl:Ontology .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#hasIngredient
+
+:hasIngredient rdf:type owl:ObjectProperty ;
+               
+               rdfs:range :Ingredient .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Dairy
+
+:Dairy rdf:type owl:Class ;
+       
+       rdfs:subClassOf :Ingredient .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Dish
+
+:Dish rdf:type owl:Class .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#DishClassification
+
+:DishClassification rdf:type owl:Class .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Fruit
+
+:Fruit rdf:type owl:Class ;
+       
+       rdfs:subClassOf :Ingredient .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Ingredient
+
+:Ingredient rdf:type owl:Class .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Lasagna
+
+:Lasagna rdf:type owl:Class ;
+         
+         rdfs:subClassOf :Dish .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Meat
+
+:Meat rdf:type owl:Class ;
+      
+      rdfs:subClassOf :Ingredient .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Pasta
+
+:Pasta rdf:type owl:Class ;
+       
+       rdfs:subClassOf :Ingredient .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Pizza
+
+:Pizza rdf:type owl:Class ;
+       
+       rdfs:subClassOf :Dish .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Soup
+
+:Soup rdf:type owl:Class ;
+      
+      rdfs:subClassOf :Dish .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Spaghetti
+
+:Spaghetti rdf:type owl:Class ;
+           
+           rdfs:subClassOf :Dish .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#VeganDish
+
+:VeganDish rdf:type owl:Class ;
+           
+           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasIngredient ;
+                                 owl:allValuesFrom [ rdf:type owl:Class ;
+                                                     owl:unionOf ( :Fruit
+                                                                   :Pasta
+                                                                   :Vegetable
+                                                                 )
+                                                   ]
+                               ] ;
+           
+           rdfs:subClassOf :DishClassification .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Vegetable
+
+:Vegetable rdf:type owl:Class ;
+           
+           rdfs:subClassOf :Ingredient .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#VegetarianDish
+
+:VegetarianDish rdf:type owl:Class ;
+                
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasIngredient ;
+                                      owl:allValuesFrom [ rdf:type owl:Class ;
+                                                          owl:unionOf ( :Dairy
+                                                                        :Fruit
+                                                                        :Pasta
+                                                                        :Vegetable
+                                                                      )
+                                                        ]
+                                    ] ;
+                
+                rdfs:subClassOf :DishClassification .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Basil
+
+:Basil rdf:type :Vegetable ,
+                owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Carrot
+
+:Carrot rdf:type :Vegetable ,
+                 owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Cheese
+
+:Cheese rdf:type :Dairy ,
+                 :Ingredient ,
+                 owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Garlic
+
+:Garlic rdf:type :Vegetable ,
+                 owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#GroundBeef
+
+:GroundBeef rdf:type :Meat ,
+                     owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Ham
+
+:Ham rdf:type :Meat ,
+              owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#LasagnaBolognese
+
+:LasagnaBolognese rdf:type :Lasagna ,
+                           owl:NamedIndividual ;
+                  
+                  :hasIngredient :Cheese ,
+                                 :GroundBeef ,
+                                 :LasagnaDough ,
+                                 :TomatoSauce .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#LasagnaDough
+
+:LasagnaDough rdf:type :Pasta ,
+                       owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#MashedTomatoes
+
+:MashedTomatoes rdf:type :Fruit ,
+                         owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#OliveOil
+
+:OliveOil rdf:type :Vegetable ,
+                   owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#PizzaDough
+
+:PizzaDough rdf:type :Pasta ,
+                     owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#PizzaMargherita
+
+:PizzaMargherita rdf:type :Pizza ,
+                          owl:NamedIndividual ;
+                 
+                 :hasIngredient :Basil ,
+                                :Cheese ,
+                                :PizzaDough ,
+                                :SlicedTomato .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#SlicedTomato
+
+:SlicedTomato rdf:type :Fruit ,
+                       owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Spaghetti
+
+:Spaghetti rdf:type :Pasta ,
+                    owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#SpaghettiAlPesto
+
+:SpaghettiAlPesto rdf:type :Spaghetti ,
+                           owl:NamedIndividual ;
+                  
+                  :hasIngredient :Basil ,
+                                 :Garlic ,
+                                 :OliveOil .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#Spinach
+
+:Spinach rdf:type :Vegetable ,
+                  owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#TomatoSauce
+
+:TomatoSauce rdf:type :Fruit ,
+                      owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/raviquast/ontologies/2015/8/Food-ontology#TomatoSoup
+
+:TomatoSoup rdf:type :Soup ,
+                     owl:NamedIndividual ;
+            
+            :hasIngredient :MashedTomatoes .
+
+
+
+
+
+#################################################################
+#
+#    General axioms
+#
+#################################################################
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Dairy
+                :Fruit
+                :Meat
+                :Pasta
+                :Vegetable
+              )
+] .
+
+
+
+
+###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
+
