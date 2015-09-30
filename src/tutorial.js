@@ -1,3 +1,4 @@
+
 /*
 // ############
 //    STEP 1
@@ -5,15 +6,18 @@
 */
 
 // If the element with id 'link1' is clicked
-//$('#link1').on('click', function(e){
+// $('#link1').on('click', function(e){
 	var bootstrapCSSLink = $('<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">');
 	var bootstrapThemeCSSLink = $('<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">');
 	var bootstrapJavaScriptLink = $('<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>');
-
+	
 	$('body').append(bootstrapCSSLink);
 	$('body').append(bootstrapThemeCSSLink);
 	$('body').append(bootstrapJavaScriptLink);	
-//});
+// });
+
+
+
 /*
 // ############
 //    STEP 14
@@ -25,12 +29,9 @@ $('#link14').on('click', function(e){
 	var query = $('#query14').val();
 	var endpoint = 'http://localhost:5820/tutorial/query';
 	var format = 'JSON';
-	var reasoning = $('#reasoning').is(':checked');
-
-	console.log(reasoning);
-	$.get('/sparql',data={'endpoint': endpoint, 'query': query, 'format': format, 'reasoning': reasoning}, function(json){
+	
+	$.get('/sparql',data={'endpoint': endpoint, 'query': query, 'format': format}, function(json){
 		console.log(json);
-		// console.log(err);
 		
 		try {
 			var vars = json.head.vars;
