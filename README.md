@@ -31,3 +31,4 @@ Once everything is ready:
 * run `python tutorial.py`.
 
 The tutorial is then running at <http://localhost:5000> .
+# GameRecommendationSystem
